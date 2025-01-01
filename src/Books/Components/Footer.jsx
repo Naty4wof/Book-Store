@@ -1,5 +1,5 @@
 import React from 'react'
-import book from '../../assets/chair.jpg'
+import book from '../../assets/book.png'
 import logo from '../../assets/react.svg'
 
 
@@ -23,7 +23,7 @@ const Footer = () => {
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum.
                 </p>
                 <div className='flex'>
-                    <input className='text-xs w-full outline-none rounded-l-[4px] pl-2' placeholder='Enter your email' type="text" />
+                    <input className='text-xs text-black font-medium w-full outline-none rounded-l-[4px] pl-2' placeholder='Enter your email' type="text" />
                     <button className='text-xs rounded-r-[4px] bg-yellow-400 hover:bg-yellow-500 px-2 py-1 text-black'>Subscribe</button>
                 </div>
             </div>

@@ -1,26 +1,42 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:7000/api/tasks';
+const API_URL = 'http://localhost:7000/api'; // Base API URL
 
-const getBooks = () => {
-  return axios.get(API_URL);
+axios.interceptors.request.use((config) => {
+  const token = localStorage.getItem('jwtToken');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+const login = (credentials) => {
+  return axios.post(`${API_URL}/login`, credentials, {
+    headers: { 'Content-Type': 'application/json' },
+  });
 };
 
-const addBook = (book) => {
-  return axios.post(API_URL, book);
-};
+const getBooks = () => axios.get(`${API_URL}/books`);
 
-const updateTask = (id, task) => {
-  return axios.put(`${API_URL}/${id}`, task);
-};
+const getBook = (id) => axios.get(`${API_URL}/books/${id}`);
 
-const deleteTask = (id) => {
-  return axios.delete(`${API_URL}/${id}`);
-};
+const addBook = (bookData) =>
+  axios.post(`${API_URL}/books`, bookData, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+  });
+
+const updateBook = (id, bookData) =>
+  axios.put(`${API_URL}/books/${id}`, bookData, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+  });
+
+const deleteBook = (id) => axios.delete(`${API_URL}/books/${id}`);
 
 export default {
+  login,
   getBooks,
+  getBook,
   addBook,
-  updateTask,
-  deleteTask,
+  updateBook,
+  deleteBook,
 };

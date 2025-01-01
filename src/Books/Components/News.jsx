@@ -1,5 +1,5 @@
 import React from 'react'
-import news from '../../assets/chair.jpg'
+import news from '../../assets/book.png'
 const News = () => {
   return (
     <div className='mx-32 mb-24'>

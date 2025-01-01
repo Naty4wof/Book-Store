@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../../assets/chair.jpg'
+import logo from '../../assets/book-img.jpg'
 import Navbar from '../Components/Navbar'
 import BookList from '../Components/BookList'
 import News from '../Components/News'
